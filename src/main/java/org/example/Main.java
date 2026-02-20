@@ -1,7 +1,5 @@
 package org.example;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 
 public class Main {
@@ -13,6 +11,7 @@ public class Main {
 
         System.out.println("SiGCVet conectado");
         testConnection();
+        leerPacientes();
         cerrarConexion();
     }
 
@@ -32,6 +31,7 @@ public class Main {
         }
 
     }
+
     public static void cerrarConexion() {
         try {
             if (con != null && !con.isClosed()) {
@@ -41,6 +41,33 @@ public class Main {
         } catch (SQLException e) {
             System.err.println("No se ha cerrado correctamente la base de datos" + e.getMessage());
             e.printStackTrace();
+        }
+    }
+
+    public static void leerPacientes() {
+        String sql = "SELECT * FROM pacientestest";
+        try{
+            if (con != null) {
+                Statement st = con.createStatement();
+                ResultSet rs = st.executeQuery(sql);
+
+                System.out.println("\n--- LISTADO DE PACIENTES (Usando Records) ---");
+                while (rs.next()) {
+                    Paciente p = new Paciente(
+                            rs.getInt("id"),
+                            rs.getString("nombre"),
+                            rs.getString("especie"),
+                            rs.getInt("edad"),
+                            rs.getString("propietario")
+                    );
+                    listaPacientes.add(p);
+                    System.out.println(p);
+                }
+                rs.close();
+                st.close();
+            }
+        } catch (Exception e){
+            System.err.println("ERROR - No se pudo crear el Statement para lectura: " + e.getMessage());
         }
     }
 }
