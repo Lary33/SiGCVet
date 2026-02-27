@@ -7,9 +7,6 @@ import java.util.ArrayList;
 public class Main {
     static Connection con = null;
 
-    record PacienteTest(int id, String nombre, String especie, int edad, String propietario) {}
-    static ArrayList<PacienteTest> listaPacientesTest = new ArrayList<>();
-
     record Usuario(int idUsuario, String nombre, String contrasena, String rol) {}
     static ArrayList<Usuario> listaUsuarios = new ArrayList<>();
 
@@ -31,7 +28,12 @@ public class Main {
     public static void main(String[] args){
         System.out.println("SiGCVet conectado");
         testConnection();
-        leerPacientesTest();
+        leerUsuarios();
+        leerClientes();
+        leerPacientes();
+        leerCitas();
+        leerConsultas();
+        leerProductos();
         cerrarConexion();
     }
 
@@ -61,33 +63,6 @@ public class Main {
         } catch (SQLException e) {
             System.err.println("No se ha cerrado correctamente la base de datos" + e.getMessage());
             e.printStackTrace();
-        }
-    }
-
-    public static void leerPacientesTest() {
-        String sql = "SELECT * FROM pacientestest";
-        try{
-            if (con != null) {
-                Statement st = con.createStatement();
-                ResultSet rs = st.executeQuery(sql);
-
-                System.out.println("\n--- LISTADO DE PACIENTES (Usando Records) ---");
-                while (rs.next()) {
-                    PacienteTest p = new PacienteTest(
-                            rs.getInt("id"),
-                            rs.getString("nombre"),
-                            rs.getString("especie"),
-                            rs.getInt("edad"),
-                            rs.getString("propietario")
-                    );
-                    listaPacientesTest.add(p);
-                    System.out.println(p);
-                }
-                rs.close();
-                st.close();
-            }
-        } catch (Exception e){
-            System.err.println("ERROR - No se pudo crear el Statement para lectura: " + e.getMessage());
         }
     }
 
