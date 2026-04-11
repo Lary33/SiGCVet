@@ -4,6 +4,16 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 
+import static org.example.logUsuario.*;
+
+/**
+ * Se trata del arranque de la aplicación de SiGCVet
+ * Contiene toda la lógica del programa de SiGCVet para que se ejecute correctamente
+ *
+ * @author LaryD
+ * @version 1.0
+ */
+
 public class Main {
     static Connection con = null;
 
@@ -35,6 +45,10 @@ public class Main {
         leerConsultas();
         leerProductos();
         cerrarConexion();
+
+        solicitarUsuario();
+        solicitarContrasena();
+        comprobarUsuario();
     }
 
     public static void testConnection() {
