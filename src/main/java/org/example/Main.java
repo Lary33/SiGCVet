@@ -35,7 +35,7 @@ public class Main {
     record Consulta(int idConsulta, int idCita, String diagnostico, String tratamiento, String observaciones) {}
     static ArrayList<Consulta> listaConsultas = new ArrayList<>();
 
-    public static void main(String[] args){
+    public static void main(String[] args) throws InterruptedException {
         System.out.println("SiGCVet conectado");
         testConnection();
         leerUsuarios();
