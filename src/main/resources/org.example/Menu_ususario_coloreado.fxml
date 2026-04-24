@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+  <children>
+    <MenuBar style="-fx-background-color: #0047AB;" VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" style="-fx-color: #0000;" text="Edit" />
+        <Menu mnemonicParsing="false" style="-fx-color: #0000;" text="File">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Close" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" style="-fx-color: #0000;" text="Help" />
+        <Menu mnemonicParsing="false" style="-fx-color: #0000;" text="Log out" />
+      </menus>
+    </MenuBar>
+    
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" style="-fx-background-color: #000829;" VBox.vgrow="ALWAYS">
+         <children>
+            <Label alignment="CENTER" layoutX="400.0" layoutY="50.0" prefHeight="48.0" prefWidth="200.0" text="SiGCVet" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="36.0" />
+               </font>
+            </Label>
+            
+            <VBox layoutX="10.0" layoutY="70.0" spacing="10.0">
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="65.0" prefWidth="150.0" style="-fx-background-color: #000829; -fx-border-color: #5BC0DE; -fx-text-fill: white;" text="Registrar cliente" />
+                  <Button mnemonicParsing="false" prefHeight="65.0" prefWidth="150.0" style="-fx-background-color: #000829; -fx-border-color: #5BC0DE; -fx-text-fill: white;" text="Registrar paciente" />
+                  <Button mnemonicParsing="false" prefHeight="65.0" prefWidth="150.0" style="-fx-background-color: #000829; -fx-border-color: #5BC0DE; -fx-text-fill: white;" text="Registrar prod..." />
+                  <Button mnemonicParsing="false" prefHeight="65.0" prefWidth="150.0" style="-fx-background-color: #000829; -fx-border-color: #5BC0DE; -fx-text-fill: white;" text="..." />
+                  <Button mnemonicParsing="false" prefHeight="65.0" prefWidth="150.0" style="-fx-background-color: #000829; -fx-border-color: #5BC0DE; -fx-text-fill: white;" text="..." />
+                  <Button mnemonicParsing="false" prefHeight="65.0" prefWidth="150.0" style="-fx-background-color: #000829; -fx-border-color: #5BC0DE; -fx-text-fill: white;" text="..." />
+               </children>
+            </VBox>
+
+            <Button layoutX="260.0" layoutY="200.0" mnemonicParsing="false" prefHeight="90.0" prefWidth="170.0" style="-fx-background-color: #8A5CF5; -fx-background-radius: 15; -fx-text-fill: white;" text="Crear cita">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            
+            <Button layoutX="560.0" layoutY="200.0" mnemonicParsing="false" prefHeight="90.0" prefWidth="170.0" style="-fx-background-color: #00C853; -fx-background-radius: 15; -fx-text-fill: white;" text="Crear factura">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            
+            <Button layoutX="260.0" layoutY="350.0" mnemonicParsing="false" prefHeight="90.0" prefWidth="170.0" style="-fx-background-color: #0050B3; -fx-background-radius: 15; -fx-text-fill: white;" text="Calendario citas" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            
+            <Button layoutX="560.0" layoutY="350.0" mnemonicParsing="false" prefHeight="90.0" prefWidth="170.0" style="-fx-background-color: #8A5CF5; -fx-background-radius: 15; -fx-text-fill: white;" text="Historial clínico" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+         </children>
+    </AnchorPane>
+  </children>
+</VBox>
