@@ -1,8 +1,14 @@
 package org.example;
+
 import java.sql.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 import static org.example.logUsuario.*;
 
@@ -14,7 +20,7 @@ import static org.example.logUsuario.*;
  * @version 1.0
  */
 
-public class Main {
+public class Main extends Application{
     static Connection con = null;
 
     record Usuario(int idUsuario, String nombre, String contrasena, String rol) {}
@@ -46,10 +52,28 @@ public class Main {
         leerProductos();
         cerrarConexion();
 
-        solicitarUsuario();
-        solicitarContrasena();
-        comprobarUsuario();
+        launch(args);
     }
+
+    public void start(Stage primaryStage) {
+        testConnection();
+        try {
+            // 1. Cargamos el archivo FXML desde la carpeta de recursos
+            // Nota: La ruta debe empezar por / y coincidir con la jerarquía de carpetas
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org.example/Pantalla_loggin_coloreado.fxml"));
+            Parent root = loader.load();
+            // 2. Creamos la "Escena" (el contenido de la ventana)
+            Scene scene = new Scene(root);
+            // 3. Configuramos el "Escenario" (la ventana en sí)
+            primaryStage.setTitle("SiGCVet - Loggin de usuarios");
+            primaryStage.setScene(scene);
+            // 4. Hacemos que la ventana sea visible
+            primaryStage.show();
+        } catch (Exception e) {
+            // Es vital capturar errores aquí por si la ruta del FXML está mal
+            e.printStackTrace();
+        }
+    };
 
     public static void testConnection() {
         String url = "jdbc:postgresql://ep-lively-sunset-aby2qoj7-pooler.eu-west-2.aws.neon.tech:5432/proyecto_alumno7?sslmode=require";

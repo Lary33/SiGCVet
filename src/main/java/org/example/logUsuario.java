@@ -29,7 +29,6 @@ public class logUsuario {
             return;
         }
 
-
         for (int i = 0; i < listaUsuarios.size(); i++){
             if (listaUsuarios.get(i).nombre().equals(nombreUsuario)){
                 if (listaUsuarios.get(i).contrasena().equals(contrasenaDeUsuario)){
