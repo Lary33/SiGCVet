@@ -10,8 +10,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import static org.example.logUsuario.*;
-
 /**
  * Se trata del arranque de la aplicación de SiGCVet
  * Contiene toda la lógica del programa de SiGCVet para que se ejecute correctamente
@@ -45,11 +43,6 @@ public class Main extends Application{
         System.out.println("SiGCVet conectado");
         testConnection();
         leerUsuarios();
-        leerClientes();
-        leerPacientes();
-        leerCitas();
-        leerConsultas();
-        leerProductos();
         cerrarConexion();
 
         launch(args);
